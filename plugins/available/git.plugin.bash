@@ -1,6 +1,12 @@
 cite about-plugin
 about-plugin 'git helper functions'
 
+function git_branch_authors {
+  about 'list all branches and its authors'
+  group 'git'
+  git for-each-ref --format='%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p) %(align:25,left)%(color:yellow)%(authorname)%(end) %(color:reset)%(refname:strip=3)' --sort=authordate refs/remotes
+}
+
 function git_remote {
   about 'adds remote $GIT_HOSTING:$1 to current repo'
   group 'git'
